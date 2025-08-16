@@ -1,0 +1,36 @@
+// Problem 01
+function totalFine( fare ) {
+    if(fare <= 0 || typeof fare === 'string'){
+        return 'Invalid'
+    }
+        totalFine = fare + fare * (20 / 100 ) + 30;
+        return totalFine;
+}
+
+// Problem 02
+function  onlyCharacter( str ) {
+    if(typeof str !== "string"){
+        return "Invalid"
+    } 
+    return str.replaceAll(" ", "").toUpperCase()
+}
+
+//Problem 03
+function  bestTeam( player1, player2 ){
+    const team01 = player1.foul + player1.cardY + player1.cardR
+    const team02 = player2.foul + player2.cardY + player2.cardR
+    if(team01 < team02){
+        return player1.name
+    }
+    else if (team02 < team01){
+        return player2.name
+    }
+    else if(team01 = team02){
+        return "Tie"
+    }
+    else{
+        return "Invalid"
+    }
+}
+
+//Problem 04
