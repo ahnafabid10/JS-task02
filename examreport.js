@@ -1,15 +1,30 @@
-function  resultReport( marks ) {
-    let sum = 0;
-    for (const mark of marks){
-        sum = (sum + mark)
-        fullScore = sum / marks.length  
+ function resultReport(marks) {
+  if (!Array.isArray(marks) || marks.length === 0) {
+    return "Invalid";
+  }
+
+  let sum = 0;
+  let pass = 0;
+  let fail = 0;
+
+  for(const mark of marks){
+    sum += mark;
+    if(mark >= 40){
+      pass++;
+    } 
+    else{
+      fail++;
     }
-    return ("fullScore", ( Math.round(fullScore)));
+  }
+
+  let fullScore = Math.round(sum / marks.length);
+
+  return {
+    fullScore: fullScore,
+    pass: pass,
+    fail: fail
+  }
 }
 
-
-
-
-const report = resultReport([98, 87, 67, 91, 92, 33, 87])
-console.log(report)
-
+const report = resultReport([19, 89, 87, 26, 90, 91, 92 ]);
+console.log(report);
